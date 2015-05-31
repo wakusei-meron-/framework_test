@@ -13,5 +13,11 @@ public interface ArticleMapper {
 	 */
 	List<Article> findAll();
 	
-	List<Article> findArticles();
+	
+	/**
+	 * findArticleById(int id); 指定したidの記事の取得
+	 * @param id　取得したい記事のid
+	 * @return idの記事
+	 */
+	Article findArticleById(int id);
 }

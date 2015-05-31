@@ -43,7 +43,7 @@ public class Article {
 	@Override
 	public String toString() {
 	
-		String description = null;
+		String description = "----------------------------\n";
 		description += "id : " + this.id + "\n";
 		description += "created at : " + this.createdAt.toString() + "\n";
 		description += "title : " + this.title + "\n";

@@ -5,29 +5,41 @@
 <!-- ユーザー(user)テーブルMapper定義 -->
 <mapper namespace="com.planet_meron.news.persistence.mapper.ArticleMapper">
 
-  <!-- ================================================ ResultMaps -->
+	<!-- ================================================ ResultMaps -->
 
-  <!-- Articleエンティティ -->
-  <resultMap id="articleResultMap" type="com.planet_meron.news.domain.entity.Article">
-    <id     column="article_id"       property="id" />
-    <result column="created_at"       property="createdAt"/>
-    <result column="title"     	      property="title"/>
-    <result column="body"	          property="body" />
-    <result column="image_thumb_url"  property="imageThumbURL" />
-  </resultMap>
+	<!-- 記事エンティティマッピング -->
+	<resultMap id="articleResultMap" type="com.planet_meron.news.domain.entity.Article">
+		<id column="article_id" property="id" />
+		<result column="created_at" property="createdAt" />
+		<result column="title" property="title" />
+		<result column="body" property="body" />
+		<result column="image_thumb_url" property="imageThumbURL" />
+	</resultMap>
 
-  <!-- =================================================== Queries -->
+	<!-- =================================================== Queries -->
 
-  <!-- ユーザー情報全件取得 -->
-  <select id="findAll" resultMap="articleResultMap">
-    SELECT
-      article_id,
-  	  created_at,
-  	  title,
-      body,
-  	  image_thumb_url
-    FROM article
-      ORDER BY created_at
-  </select>
+	<!-- 記事情報全件取得 -->
+	<select id="findAll" resultMap="articleResultMap">
+		SELECT
+		article_id,
+		created_at,
+		title,
+		body,
+		image_thumb_url
+		FROM article
+		ORDER BY created_at
+	</select>
+
+	<!-- idの記事取得 -->
+	<select id="findArticleById" resultMap="articleResultMap" parameterType="_int">
+		SELECT
+		article_id,
+		created_at,
+		title,
+		body,
+		image_thumb_url
+		FROM article
+		WHERE article_id = #{article_id}
+	</select>
 
 </mapper>

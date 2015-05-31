@@ -23,6 +23,7 @@ public class ArticleTest {
 			
 			sessionFactory = new SqlSessionFactoryBuilder().build(reader);
 			getAllArticles();
+			getArticleById(7);
 
 		} catch (IOException e) {
 			
@@ -38,6 +39,16 @@ public class ArticleTest {
 			for(Article article : resultList) {
 				System.out.println(article.toString());
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void getArticleById(int id) {
+		try (SqlSession sqlSession = sessionFactory.openSession()) {
+			
+			Article selectedArticle = sqlSession.getMapper(ArticleMapper.class).findArticleById(id);
+			System.out.println(selectedArticle.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
