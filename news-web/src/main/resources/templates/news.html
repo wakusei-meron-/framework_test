@@ -5,14 +5,14 @@
 
 	<header th:include="common/header :: common_header" />
 	<section>
-		<p th:if="${articles} == null">記事がありません</p>
+		<p th:if="${articles} == null">險倅ｺ九′縺ゅｊ縺ｾ縺帙ｓ</p>
 		<th:block th:each="article : ${articles}">
 			<article>
 				<a href="news01.html">
-				  <img src="images/sunflower-thumb.jpg" alt="">
-					<h1 th:text="${article.title}">真夏のひまわり畑</h1>
-					<time datetime="2013-08-10T11:00">8月10日 11:00am</time>
-					<p>森の工房の隣にある畑は、毎年夏になると満開のひまわりの花で黄色く染まります。ひまわりは「日輪草」とも呼ばれ、太陽に向かって花を咲かせます。大きなひまわりは背丈が２メートルを超え、見ごたえも十分です。畑の周囲は約５キロの散策コースになっていますので、花を見ながら散歩をするのもおすすめです。</p>
+				  <img th:attr="src=@{${article.imageThumbURL}}" alt="">
+					<h1 th:text="${article.title}"></h1>
+					<time th:text="${article.createdAt}">2013-08-10T11:00">8譛�10譌･ 11:00am</time>
+					<div th:utext="${article.body}"></div>
 				  </img>
 				</a>
 			</article>

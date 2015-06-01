@@ -1,5 +1,7 @@
 package com.planet_meron.news.persistence.dao.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -15,8 +17,12 @@ public class ArticleDaoImpl implements ArticleDao {
 	
 	@Override
 	public Article getArticleById(int id) {
-		// TODO Auto-generated method stub
 		return articleMapper.findArticleById(id);
+	}
+	
+	@Override
+	public List<Article> getAllArticles() {
+		return articleMapper.findAll();
 	}
 
 }

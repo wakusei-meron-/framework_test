@@ -31,7 +31,8 @@
 	</select>
 
 	<!-- idの記事取得 -->
-	<select id="findArticleById" resultMap="articleResultMap" parameterType="_int">
+	<select id="findArticleById" resultMap="articleResultMap"
+		parameterType="_int">
 		SELECT
 		article_id,
 		created_at,

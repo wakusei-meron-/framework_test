@@ -1,5 +1,7 @@
 package com.planet_meron.news.service;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -41,12 +43,11 @@ public class FetchArticleServiceTest {
 		ConfigurableApplicationContext context = SpringApplication.run(FetchArticleServiceTest.class, args);
 		FetchArticleService fetchArticleService = context.getBean(FetchArticleService.class);
 		
-		Article aArticle = fetchArticleService.getArticleById(3);
-		if (aArticle != null) {
-			
-			System.out.println(aArticle.toString());
-		}
-
+//		List<Article> articles = fetchArticleService.get
+//		Article aArticle = fetchArticleService.getArticleById(3);
+//		if (aArticle != null) {
+//			
+//			System.out.println(aArticle.toString());
+//		}
 	}
-
 }
